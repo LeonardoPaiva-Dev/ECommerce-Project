@@ -14,10 +14,18 @@ class Produto(models.Model):
     preco = models.FloatField()
     digital = models.BooleanField(default=False, null=True, blank=False)
     objects = models.Manager()
-    #image
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.nome
+
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url
 
 class Pedido(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.SET_NULL, blank=True, null=True)
