@@ -9,7 +9,7 @@
 				<h6><strong>{{product.nome}}</strong></h6>
 				<hr>
 
-				<button  class="btn btn-outline-secondary add-btn">Carrinho</button>
+				<button  data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Carrinho</button> 
 				<a class="btn btn-outline-success" href="#">Ver</a>
 				<h4 style="display: inline-block; float: right"><strong>R${{product.preco|floatformat:2}}</strong></h4>
 
