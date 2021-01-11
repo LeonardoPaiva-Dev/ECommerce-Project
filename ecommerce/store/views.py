@@ -36,7 +36,9 @@ def checkout(request):
     context = {'items':items, 'order':order}
     return render(request, 'store/checkout.html', context)
 
-@api_view()
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
 def updateItem(request):
     data = json.loads(request.body)
     productId = data['productId']
